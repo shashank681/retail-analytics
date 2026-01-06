@@ -17,11 +17,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Health check / Root endpoint
-@app.get("/")
-async def root():
-    return {"status": "ok", "message": "Retail Analytics API", "version": "1.0"}
-
 # Cost Settings
 COST_FORWARD_SHIPPING = 80.0
 COST_RTO_PENALTY = 29.0
@@ -528,4 +523,3 @@ async def get_cancellations_by_product(
 @app.get("/")
 async def root():
     return {"status": "API Running", "stores": list(STORE_CONFIG.keys())}
-
